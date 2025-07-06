@@ -1,8 +1,36 @@
-.idea/
-.vscode/
+# Ambiente virtual
+venv/
+.env
+*.env
+
+# Arquivos Python compilados
 __pycache__/
-dist/
-.coverage*
+*.py[cod]
+*$py.class
+
+# Logs
+*.log
+
+# Arquivos temporários
+*.swp
+*.bak
+*.tmp
+*.DS_Store
+
+# Configurações do editor (opcional)
+.vscode/
+.idea/
+
+# Testes/coverage (se usar pytest ou similares)
+.coverage
 htmlcov/
 .tox/
-docs/_build/
+.cache/
+.pytest_cache/
+
+# Arquivos de banco de dados temporários
+*.sqlite3
+instance/
+
+# Arquivos do Flask
+*.pid
