@@ -1,36 +1,56 @@
-# Ambiente virtual
-venv/
-.env
-*.env
-
-# Arquivos Python compilados
+# Bytecode
 __pycache__/
 *.py[cod]
 *$py.class
 
+# Virtual environments
+venv/
+env/
+.venv/
+ENV/
+
+# Editor configs
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# Environment files
+.env
+.env.*
+
+# SQLite or other local DBs
+*.db
+*.sqlite3
+
 # Logs
 *.log
 
-# Arquivos temporários
-*.swp
-*.bak
-*.tmp
-*.DS_Store
+# Migrations (opcional, se for gerar localmente)
+migrations/
+alembic/
 
-# Configurações do editor (opcional)
-.vscode/
-.idea/
-
-# Testes/coverage (se usar pytest ou similares)
-.coverage
-htmlcov/
-.tox/
-.cache/
+# Pytest cache
 .pytest_cache/
 
-# Arquivos de banco de dados temporários
-*.sqlite3
-instance/
+# Coverage reports
+htmlcov/
+.coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*.cover
 
-# Arquivos do Flask
-*.pid
+# MyPy and Pylint
+.mypy_cache/
+.dmypy.json
+.pyre/
+.pytype/
+
+# Mac/Linux/Windows trash files
+.DS_Store
+Thumbs.db
+
+# Jupyter
+.ipynb_checkpoints

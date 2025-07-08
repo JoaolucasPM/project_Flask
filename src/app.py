@@ -1,10 +1,25 @@
-from flask import Flask
+import os, click
 
-app = Flask(__name__)
+from flask import Flask, current_app
+from flask_sqlalchemy import SQLAlchemy
+from sqlalchemy.orm import DeclarativeBase
 
-import os
 
-from flask import Flask
+""" SQLAlchemy ->  Conexao com o banco """
+class Base(DeclarativeBase):
+  pass
+
+db = SQLAlchemy(model_class=Base)
+
+"""  """
+
+""" Registrando o nome do commando ->  Conexão com o banco """
+@click.command('init-db')
+def init_db_command():
+    global db
+    with current_app.app_context():
+        db.create_all()
+    click.echo('Initialized the database.')
 
 
 def create_app(test_config=None):
@@ -12,7 +27,8 @@ def create_app(test_config=None):
     app = Flask(__name__, instance_relative_config=True)
     app.config.from_mapping(
         SECRET_KEY='dev',
-        DATABASE=os.path.join(app.instance_path, 'flaskr.sqlite'),
+        SQLALCHEMY_DATABASE_URI = 'sqlite:///diobank.sqlite',
+        
     )
 
     if test_config is None:
@@ -28,10 +44,12 @@ def create_app(test_config=None):
     except OSError:
         pass
 
-    # a simple page that says hello
-    @app.route('/hello')
-    def hello():
-        return 'Hello, World!'
+    #Rota 
+    
 
-    return appsage':'Hello world'
-    }
+
+##Registro de comandado  / inicialização do banco - Conexão com o banco
+    app.cli.add_command(init_db_command)
+    db.init_app(app)
+
+    return app
