@@ -1,53 +1,20 @@
-Claro! Aqui está uma explicação **objetiva e direta** das duas funções do seu projeto Flask:
+1 - Cria o arquivo 'db.py" onde ficará as CONFIGURAÇÕES e conexão com o banco de DADOS
+-> Documentação https://flask.palletsprojects.com/en/stable/tutorial/database/
 
----
+1.1 - Pode fazer um ctrl + C e Ctrl + V e importar para o arquivo db.py
 
-### 🔹 Função: `/olamundo/<usuario>/<int:idade>/<float:altura>`
+-> é necessario registrar o "db.init_app(app)" dentro no nosso "App.py"
+-> Deve ser importada
 
-**O que faz:**
+    from . import db
+    db.init_app(app)
 
-* Recebe **três valores pela URL**:
+antes da app ser retornada.
 
-  * `usuario` (texto)
-  * `idade` (número inteiro)
-  * `altura` (número decimal)
-* Retorna esses valores como **JSON**.
+2 - Usando o SQLAlchmy
+2.1 - link: https://flask-sqlalchemy.readthedocs.io/en/stable/quickstart/
 
-**Exemplo de URL:**
 
-```
-/olamundo/Ana/30/1.65
-```
-
-**Resposta:**
-
-```json
-{
-  "Usuario": "Ana",
-  "idade": 30,
-  "altura": 1.65
-}
-```
-
----
-
-### 🔹 Função: `/bemvindo`
-
-**O que faz:**
-
-* Retorna um **JSON fixo** com a mensagem `"Hello world"`.
-
-**Exemplo de URL:**
-
-```
-/bemvindo
-```
-
-**Resposta:**
-
-```json
-{
-  "message": "Hello world"
-}
-```
-
+3
+->https://www.sqlalchemy.org/
+podemos ir direto ao "ORM Quickstart"
